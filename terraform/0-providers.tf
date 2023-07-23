@@ -30,7 +30,8 @@ provider "k8s" {
 }
 
 provider "kubectl" {
-  # Configuration options
+  config_context_cluster = "minikube"
+  config_path            = "~/.kube/config"
 }
 provider "helm" {
   # Configuration options

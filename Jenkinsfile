@@ -37,6 +37,7 @@ pipeline {
             sh '''
             mv $KUBECONFIG ~/.kube/config
             export KUBE_CONFIG_PATH=~/.kube/config
+            export KUBE_LOAD_CONFIG_FILE = ~/.kube/config
             cd ./terraform 
             terraform init -upgrade
             terraform apply -auto-approve
