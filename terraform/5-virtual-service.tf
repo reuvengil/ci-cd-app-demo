@@ -54,5 +54,6 @@ resource "k8s_networking_istio_io_virtual_service_v1beta1" "ci-cd-app" {
 }
 # kubectl apply
 resource "kubectl_manifest" "ci-cd-app-virtualservice" {
-  yaml_body = k8s_networking_istio_io_virtual_service_v1beta1.ci-cd-app.yaml
+  yaml_body  = k8s_networking_istio_io_virtual_service_v1beta1.ci-cd-app.yaml
+  depends_on = [kubernetes_namespace.production]
 }

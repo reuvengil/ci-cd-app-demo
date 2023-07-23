@@ -32,7 +32,8 @@ resource "k8s_networking_istio_io_destination_rule_v1beta1" "ci-cd-app" {
 
 # kubectl apply
 resource "kubectl_manifest" "ci-cd-app-destinationrule" {
-  yaml_body = k8s_networking_istio_io_destination_rule_v1beta1.ci-cd-app.yaml
+  yaml_body  = k8s_networking_istio_io_destination_rule_v1beta1.ci-cd-app.yaml
+  depends_on = [kubernetes_namespace.production]
 }
 
 

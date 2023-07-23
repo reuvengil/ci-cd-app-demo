@@ -38,5 +38,6 @@ resource "k8s_networking_istio_io_gateway_v1beta1" "my-gateway" {
 }
 # kubectl apply
 resource "kubectl_manifest" "my-gateway-gateway" {
-  yaml_body = k8s_networking_istio_io_gateway_v1beta1.my-gateway.yaml
+  yaml_body  = k8s_networking_istio_io_gateway_v1beta1.my-gateway.yaml
+  depends_on = [kubernetes_namespace.production]
 }
