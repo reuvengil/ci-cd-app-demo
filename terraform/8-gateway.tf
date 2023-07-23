@@ -35,7 +35,6 @@ resource "k8s_networking_istio_io_gateway_v1beta1" "my-gateway" {
       ]
     }]
   }
-  depends_on = [kubernetes_namespace.production]
 }
 # kubectl apply
 resource "kubectl_manifest" "my-gateway-gateway" {

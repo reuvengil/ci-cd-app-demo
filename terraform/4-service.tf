@@ -28,6 +28,5 @@ resource "kubernetes_service" "ci-cd-app" {
       app = "ci-cd-app"
     }
   }
-  depends_on = [kubernetes_namespace.production]
 }
 

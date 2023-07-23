@@ -104,5 +104,4 @@ resource "null_resource" "kubectl" {
     command     = "kubectl rollout restart deployment my-deployment -n production"
     interpreter = ["/bin/bash", "-c"]
   }
-  depends_on = [kubernetes_deployment.my-deployment]
 }
