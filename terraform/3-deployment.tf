@@ -91,6 +91,7 @@ resource "kubernetes_deployment" "my-deployment" {
       }
     }
   }
+  depends_on = [kubernetes_namespace.production]
 }
 
 resource "null_resource" "kubectl" {
@@ -103,4 +104,5 @@ resource "null_resource" "kubectl" {
     command     = "kubectl rollout restart deployment my-deployment -n production"
     interpreter = ["/bin/bash", "-c"]
   }
+  depends_on = [kubernetes_deployment.my-deployment]
 }
