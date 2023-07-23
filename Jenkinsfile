@@ -35,7 +35,8 @@ pipeline {
         withKubeConfig([credentialsId: 'kubeConfig']) {
           script {
             sh '''
-            export KUBE_CONFIG_PATH=$KUBECONFIG
+            mv $KUBECONFIG ~/.kube/config
+            export KUBE_CONFIG_PATH=~/.kube/config
             cd ./terraform 
             terraform init -upgrade
             terraform apply -auto-approve
